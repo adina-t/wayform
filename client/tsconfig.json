@@ -1,0 +1,32 @@
+// client/tsconfig.json
+{
+    "compilerOptions": {
+      "target": "ES2020",
+      "lib": ["ES2020", "DOM", "DOM.Iterable"],
+      "module": "ESNext",
+      "skipLibCheck": true,
+      "moduleResolution": "bundler",
+      "allowImportingTsExtensions": true,
+      "resolveJsonModule": true,
+      "isolatedModules": true,
+      "noEmit": true,
+      "jsx": "react-jsx",
+      "strict": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "noFallthroughCasesInSwitch": true,
+      "baseUrl": ".",
+      "paths": {
+        "@/*": ["./src/*"],
+        "@/components/*": ["./src/components/*"],
+        "@/lib/*": ["./src/lib/*"],
+        "@/hooks/*": ["./src/hooks/*"],
+        "@/pages/*": ["./src/pages/*"],
+        "@assets/*": ["./public/*"],
+        "@shared/*": ["../shared/src/*"] // Point to shared *source* for development
+      }
+    },
+    "include": ["src", "../shared"], // Include client source and shared source for type checking
+    "exclude": ["node_modules", "dist", "build"], // Add client-specific exclusions
+    "references": [{ "path":  "../shared" }] // Reference the shared project
+  }

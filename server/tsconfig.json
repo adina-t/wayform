@@ -1,0 +1,27 @@
+// server/tsconfig.json
+{
+    "compilerOptions": {
+      "target": "ES2020",
+      "lib": ["ES2020"],
+      "module": "NodeNext", // Or CommonJS if you're not using ESM in Node
+      "moduleResolution": "NodeNext", // Node.js style module resolution
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "noEmit": true,       // Typically true if you're using ts-node or a bundler for server
+      "baseUrl": ".",
+      "paths": {
+        "@shared/*": ["../shared/src/*"], // Point to shared *source* for development
+        "@server/*": ["./*"]
+      },
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "noFallthroughCasesInSwitch": true
+    },
+    "include": ["src", "../shared"], // Include server source and shared source for type checking
+    "exclude": ["node_modules"],
+    "references": [
+      { "path": "../shared" } // Reference the shared project
+    ]
+  }

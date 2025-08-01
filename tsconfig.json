@@ -1,0 +1,9 @@
+// tsconfig.json (at the root)
+{
+    "files": [], // Important: Leave this empty so it doesn't try to compile everything
+    "references": [
+      { "path": "./shared" }, // Build shared first
+      { "path": "./server" }, // Then server (depends on shared)
+      { "path": "./client" }  // Then client (depends on shared)
+    ]
+  }

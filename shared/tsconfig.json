@@ -1,0 +1,26 @@
+// shared/tsconfig.json
+{
+    "compilerOptions": {
+      "composite": true,           // Crucial: Tells TS this is a project reference
+      "declaration": true,         // Generates .d.ts files for type inference
+      "declarationMap": true,      // Useful for go-to-definition in editors
+      "outDir": "./dist",          // Output directory for compiled JS and .d.ts
+      "rootDir": "./src",          // Root of your shared source files
+      "target": "ES2020",
+      "module": "NodeNext",        // Or "ESNext", depending on how your bundlers/server consume it
+      "moduleResolution": "NodeNext", // Or "Node", depending on module resolution strategy
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "noEmit": false,             // Must be false to generate output (especially .d.ts)
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "baseUrl": ".",          // Base URL for relative paths within shared
+      "paths": {
+        "@shared/*": ["./src/*.ts", "./src/*.tsx"]      // Alias for imports within shared itself
+      }
+    },
+    // "include": ["./*.ts", "./*.tsx"], // Only include source files in shared
+    "exclude": ["node_modules", "dist"]          // Exclude output and node_modules
+  }
